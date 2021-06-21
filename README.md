@@ -11,9 +11,10 @@
 - user_id:integer
 - name:string
 - discription:text
+- priority:integer
 - deadline:date
 - status:integer
-- priority:integer
+
 
 ### labeling
 - id
@@ -22,4 +23,4 @@
 
 ### label
 - id
-- name:strig
+- name:string
