@@ -1,26 +1,36 @@
 # テーブル
 
 ### users
-- id
-- name:string
-- email:string
-- password_digest:string
+| type | column |
+| :-------: | :------------: |
+| integer | id |
+| string | name |
+| string | email |
+| string | password_digest |
+
 
 ### tasks
-- id
-- user_id:integer
-- name:string
-- discription:text
-- priority:integer
-- deadline:date
-- status:integer
+| type | column |
+| :-------: | :----------: |
+| integer | id |
+| integer | user_id |
+| string | name |
+| text | discription |
+| date | deadline |
+| integer | status |
+| integer | priority |
 
 
 ### labeling
-- id
-- task_id:integer
-- label_id:integer
+| type | column |
+| :-------: | :---------: |
+| integer | id |
+| integer | task_id |
+| integer | label_id |
+
 
 ### label
-- id
-- name:string
+| type | column |
+| :-------: | :-----: |
+| integer | id |
+| string | name |
