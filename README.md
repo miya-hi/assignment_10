@@ -34,3 +34,15 @@
 | :-------: | :-----: |
 | integer | id |
 | string | name |
+
+
+#Herokuへのデプロイ方法
+- Herokuにログイン
+    heroku login
+- Herokuアプリ作成
+    heroku create
+- アセットプリコンパイルを行う
+    rails assets:precompile RAILS_ENV=production
+- Herokuにデプロイ
+    git push heroku master
+    またはgit push heroku ローカルランチ名:master
