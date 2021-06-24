@@ -3,6 +3,8 @@ en:
     new:
       title: 'New Task'
       to_back_page: 'Back'
+      error: 'error'
+      error_message: 'prohibited this task from being saved:'
     index:
       tasks: 'Tasks'
       name: 'Task Name'

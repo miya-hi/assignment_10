@@ -3,6 +3,8 @@ ja:
     new:
       title: '新規タスク'
       to_back_page: '戻る'
+      error: 'エラー'
+      error_message: '次の内容を修正して下さい:'
     index:
       tasks: 'タスク一覧'
       name: 'タスク名'
