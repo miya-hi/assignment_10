@@ -14,7 +14,7 @@
   <tbody>
     <% @tasks.each do |task| %>
       <tr>
-        <td><%= task.name %></td>
+        <td class="task_row"><%= task.name %></td>
         <td><%= task.description %></td>
         <td><%= link_to (t '.to_show_page'), task %></td>
         <td><%= link_to (t '.to_edit_page'), edit_task_path(task) %></td>
