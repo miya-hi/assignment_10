@@ -1,0 +1,22 @@
+ja:
+  tasks:
+    new:
+      title: '新規タスク'
+      to_back_page: '戻る'
+    index:
+      tasks: 'タスク一覧'
+      name: 'タスク名'
+      description: 'タスク詳細'
+      to_show_page: '詳細'
+      to_edit_page: '編集'
+      to_delete: '削除'
+      to_new_page: '新規タスク'
+    show:
+      name: 'タスク名:'
+      description: 'タスク詳細:'
+      to_edit_page: '編集'
+      to_back_page: '戻る'
+    edit:
+      title: 'タスク編集'
+      to_show_page: '一覧'
+      to_back_page: '戻る'
