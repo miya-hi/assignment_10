@@ -1,0 +1,24 @@
+en:
+  tasks:
+    new:
+      title: 'New Task'
+      to_back_page: 'Back'
+      error: 'error'
+      error_message: 'prohibited this task from being saved:'
+    index:
+      tasks: 'Tasks'
+      name: 'Task Name'
+      description: 'Description'
+      to_show_page: 'Show'
+      to_edit_page: 'Edit'
+      to_delete: 'Destroy'
+      to_new_page: 'New Task'
+    show:
+      name: 'Name:'
+      description: 'Description:'
+      to_edit_page: 'Edit'
+      to_back_page: 'Back'
+    edit:
+      title: 'Editing Task'
+      to_show_page: 'Show'
+      to_back_page: 'Back'
