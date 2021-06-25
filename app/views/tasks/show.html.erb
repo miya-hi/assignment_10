@@ -1,20 +1,19 @@
 <p id="notice"><%= notice %></p>
-
 <p>
   <strong><%= t 'tasks.show.name' %></strong>
   <%= @task.name %>
 </p>
-
 <p>
   <strong><%= t 'tasks.show.description' %></strong>
   <%= @task.description %>
 </p>
-
 <p>
   <strong><%= t 'tasks.show.deadline' %></strong>
   <%= @task.deadline %>
 </p>
-
-
+<p>
+  <strong><%= t 'tasks.show.status' %></strong>
+  <%= @task.status %>
+</p>
 <%= link_to (t '.to_edit_page'), edit_task_path(@task) %> |
 <%= link_to (t '.to_back_page'), tasks_path %>
