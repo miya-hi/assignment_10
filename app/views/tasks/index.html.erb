@@ -7,6 +7,7 @@
     <tr>
       <th><%= t 'tasks.index.name' %></th>
       <th><%= t 'tasks.index.description' %></th>
+      <th><%= t 'tasks.index.deadline' %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,6 +17,7 @@
       <tr>
         <td class="task_row"><%= task.name %></td>
         <td><%= task.description %></td>
+        <td><%= task.deadline %></td>
         <td><%= link_to (t '.to_show_page'), task %></td>
         <td><%= link_to (t '.to_edit_page'), edit_task_path(task) %></td>
         <td><%= link_to (t '.to_delete'), task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -27,3 +29,5 @@
 <br>
 
 <%= link_to (t '.to_new_page'), new_task_path %>
+
+<%= link_to "終了期限でソートする", tasks_path(sort_expired: "true") %>
