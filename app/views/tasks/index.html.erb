@@ -3,6 +3,15 @@
 <h1><%= t 'tasks.index.tasks' %></h1>
 
 <table>
+  <%= form_with(scope: :search, url:tasks_path, method: :get,local: true)do |f| %>
+  <tr>
+    <th><%= f.label(:name, 'タスク名') %></th>
+    <td><%= f.text_field :name %></td>
+    <td><%= f.submit('検索')%></td>
+  </tr>
+  <% end %>
+</table>
+<table>
   <thead>
     <tr>
       <th><%= t 'tasks.index.name' %></th>
