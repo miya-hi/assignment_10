@@ -9,7 +9,13 @@ class TasksController < ApplicationController
       @tasks = Task.all.order(created_at: "DESC")
     end
     if params[:search].present?
-      @tasks = Task.where("name like ?","%#{params[:search][:name]}%")  
+      if params[:search][:name].present? && params[:search][:status].present?
+        @tasks = Task.where("name like ? OR (status = ? ) ", "%#{params[:search][:name]}%", "#{params[:search][:status]}")
+      elsif params[:search][:name].present?
+        @tasks = Task.where("name like ?" , "%#{params[:search][:name]}%")
+      elsif params[:search][:status].present?
+        @tasks = Task.where("status = ? " , "#{params[:search][:status]}")
+      end
     end
   end
 

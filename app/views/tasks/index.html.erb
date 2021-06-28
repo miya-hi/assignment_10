@@ -7,6 +7,12 @@
   <tr>
     <th><%= f.label(:name, 'タスク名') %></th>
     <td><%= f.text_field :name %></td>
+  </tr>
+
+    <th><%= f.label(:status, '進捗') %></th>
+    <td><%= f.select :status, [["未着手", "未着手"], ["着手中", "着手中"], ["完了", "完了"]], include_blank: "選択して下さい" %></td>
+  </tr>
+  <tr>
     <td><%= f.submit('検索')%></td>
   </tr>
   <% end %>
