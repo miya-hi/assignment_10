@@ -3,5 +3,6 @@ class Task < ApplicationRecord
   validates :description, presence: true, length: { minumun:1, maximum: 1000 }
   validates :deadline, presence: true
   validates :status, presence: true
-  scope :status_seach, -> { where("status = ? " , "#{params[:search][:status]}")}
+  scope :status_search, -> (status) { where(status: status) }
+  scope :name_search, -> (name) { where("name like?", "%#{name}%") }
 end
