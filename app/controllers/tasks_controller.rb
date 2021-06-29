@@ -1,12 +1,13 @@
 class TasksController < ApplicationController
   before_action :set_task, only: %i[ show edit update destroy ]
-
+  PER = 5
   # GET /tasks or /tasks.json
   def index
+    @tasks = Task.all.page(params[:page]).per(PER)
     if params[:sort_expired]
-      @tasks = Task.all.order(deadline: "ASC")
+      @tasks = @tasks.order(deadline: "ASC")
     elsif params[:sort_priority]
-      @tasks = Task.all.order(priority: "ASC")
+      @tasks = @tasks.order(priority: "ASC")
     end
     if params[:search].present?
       if params[:search][:name].present? && params[:search][:status].present?
