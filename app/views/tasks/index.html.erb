@@ -17,6 +17,7 @@
   </tr>
   <% end %>
 </table>
+<br>
 <table>
   <thead>
     <tr>
@@ -35,7 +36,7 @@
         <td class="task_row"><%= task.name %></td>
         <td><%= task.description %></td>
         <td><%= task.deadline %></td>
-        <td><%= task.status %></td>
+        <td class="status_test"><%= task.status %></td>
         <td><%= task.priority %></td>
         <td><%= link_to (t '.to_show_page'), task %></td>
         <td><%= link_to (t '.to_edit_page'), edit_task_path(task) %></td>
