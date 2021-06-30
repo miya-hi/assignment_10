@@ -5,9 +5,9 @@ ja:
       user: ユーザー
     attributes:
       task:
-        name: タスク名
-        description: 詳細
-        deadline: 締め切り
+        name: タイトル
+        description: 内容
+        deadline: 終了期限
         status: 進捗
         priority: 優先順位
       user:
