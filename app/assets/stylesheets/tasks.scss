@@ -1,3 +1,31 @@
 // Place all the styles related to the tasks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+td.submit{
+  margin:0 auto;
+  font-size: 1.7rem;
+}
+p.new_task{
+  text-align: left;
+}
+div.wrapper {
+  margin:0 auto;
+  padding: 6px;
+  background-color: #dcdcdc;
+  border-radius: 2px;
+  border-collapse: separate;
+}
+div.field {
+  margin: 0;
+  padding: 10px;
+  border: 1px solid #c0c0c0;
+  border-width:2px 0px;
+  background-color: #fff;
+  text-align: center;
+  font-size: 1.7rem;
+}
+div.actions{
+  padding: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
