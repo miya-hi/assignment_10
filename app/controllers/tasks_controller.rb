@@ -1,9 +1,25 @@
 class TasksController < ApplicationController
   before_action :set_task, only: %i[ show edit update destroy ]
-
+  PER = 5
   # GET /tasks or /tasks.json
   def index
-    @tasks = Task.all.order(created_at: "DESC")
+    @tasks = Task.all.page(params[:page]).per(PER)
+    if params[:sort_expired]
+      @tasks = @tasks.order(deadline: "ASC").page(params[:page]).per(PER)
+    elsif params[:sort_priority]
+      @tasks = @tasks.order(priority: "ASC").page(params[:page]).per(PER)
+    else
+      @tasks = @tasks.order(created_at: "DESC").page(params[:page]).per(PER)
+    end
+    if params[:search].present?
+      if params[:search][:name].present? && params[:search][:status].present?
+        @tasks = Task.name_search(params[:search][:name]).status_search(params[:search][:status]).page(params[:page]).per(PER)
+      elsif params[:search][:name].present?
+        @tasks = Task.name_search(params[:search][:name]).page(params[:page]).per(PER)
+      elsif params[:search][:status].present?
+        @tasks = Task.status_search(params[:search][:status]).page(params[:page]).per(PER)
+      end
+    end
   end
 
   # GET /tasks/1 or /tasks/1.json
@@ -64,6 +80,6 @@ class TasksController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def task_params
-    params.require(:task).permit(:name, :description)
+    params.require(:task).permit(:name, :description, :deadline, :status, :priority)
   end
 end

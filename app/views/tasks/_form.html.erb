@@ -2,7 +2,6 @@
   <% if task.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(task.errors.count, (t 'tasks.new.error')) %><span> </span><%= t 'tasks.new.error_message' %></h2>
-
       <ul>
       <% task.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,18 +9,29 @@
       </ul>
     </div>
   <% end %>
-
+  <div class="wrapper">
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
-
   <div class="field">
     <%= form.label :description %>
     <%= form.text_area :description %>
   </div>
-
+  <div class="field">
+    <%= form.label :deadline %>
+    <%= form.date_field :deadline %>
+  </div>
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.select :status, [["未着手", "未着手"], ["着手中", "着手中"], ["完了", "完了"]], include_blank: "選択して下さい" %>
+  </div>
+  <div class="field">
+    <%= form.label :priority %>
+    <%= form.select :priority, options_for_select(Task.priorities.keys), {prompt: "選択してください"} %>
+  </div>
   <div class="actions">
     <%= form.submit %>
   </div>
+</div>
 <% end %>

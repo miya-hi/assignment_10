@@ -1,12 +1,31 @@
 <p id="notice"><%= notice %></p>
 
 <h1><%= t 'tasks.index.tasks' %></h1>
+<p class="new_task"><%= link_to (t '.to_new_page'), new_task_path %></p>
+<table>
+  <%= form_with(scope: :search, url:tasks_path, method: :get,local: true)do |f| %>
+  <tr>
+    <th><%= f.label(:name, (t 'tasks.index.name')) %></th>
+    <td><%= f.text_field :name %></td>
+  </tr>
 
+    <th><%= f.label(:status, (t 'tasks.index.status')) %></th>
+    <td><%= f.select :status, [["未着手", "未着手"], ["着手中", "着手中"], ["完了", "完了"]], include_blank: "選択して下さい" %></td>
+  </tr>
+  <tr>
+    <td colspan="2" class="submit"><%= f.submit(t 'tasks.index.search')%></td>
+  </tr>
+  <% end %>
+</table>
+<br>
 <table>
   <thead>
     <tr>
       <th><%= t 'tasks.index.name' %></th>
       <th><%= t 'tasks.index.description' %></th>
+      <th><%= t 'tasks.index.deadline' %></th>
+      <th><%= t 'tasks.index.status' %></th>
+      <th><%= t 'tasks.index.priority' %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,14 +35,17 @@
       <tr>
         <td class="task_row"><%= task.name %></td>
         <td><%= task.description %></td>
+        <td><%= task.deadline %></td>
+        <td class="status_test"><%= task.status %></td>
+        <td><%= task.priority %></td>
         <td><%= link_to (t '.to_show_page'), task %></td>
         <td><%= link_to (t '.to_edit_page'), edit_task_path(task) %></td>
         <td><%= link_to (t '.to_delete'), task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+    <%= paginate @tasks %>
   </tbody>
 </table>
-
 <br>
-
-<%= link_to (t '.to_new_page'), new_task_path %>
+<%= link_to (t '.sort_of_deadline'), tasks_path(sort_expired: "true") %>
+<%= link_to (t '.sort_of_priority'), tasks_path(sort_priority: "true") %>

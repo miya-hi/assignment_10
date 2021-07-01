@@ -17,7 +17,7 @@
 | string | name |
 | text | discription |
 | date | deadline |
-| integer | status |
+| string | status |
 | integer | priority |
 
 
