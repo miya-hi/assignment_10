@@ -3,7 +3,7 @@ class TasksController < ApplicationController
   PER = 5
   # GET /tasks or /tasks.json
   def index
-    @tasks = Task.all.page(params[:page]).per(PER)
+    @tasks = current_user.tasks.page(params[:page]).per(PER)
     if params[:sort_expired]
       @tasks = @tasks.order(deadline: "ASC").page(params[:page]).per(PER)
     elsif params[:sort_priority]
@@ -37,8 +37,7 @@ class TasksController < ApplicationController
 
   # POST /tasks or /tasks.json
   def create
-    @task = Task.new(task_params)
-
+    @task = current_user.tasks.build(task_params)
     respond_to do |format|
       if @task.save
         format.html { redirect_to @task, notice: "Task was successfully created." }
