@@ -3,23 +3,24 @@ class TasksController < ApplicationController
   PER = 5
   # GET /tasks or /tasks.json
   def index
-    @tasks = current_user.tasks.page(params[:page]).per(PER)
+    @tasks = current_user.tasks
     if params[:sort_expired]
-      @tasks = @tasks.order(deadline: "ASC").page(params[:page]).per(PER)
+      @tasks = @tasks.order(deadline: "ASC")
     elsif params[:sort_priority]
-      @tasks = @tasks.order(priority: "ASC").page(params[:page]).per(PER)
+      @tasks = @tasks.order(priority: "ASC")
     else
-      @tasks = @tasks.order(created_at: "DESC").page(params[:page]).per(PER)
+      @tasks = @tasks.order(created_at: "DESC")
     end
     if params[:search].present?
       if params[:search][:name].present? && params[:search][:status].present?
-        @tasks = Task.name_search(params[:search][:name]).status_search(params[:search][:status]).page(params[:page]).per(PER)
+        @tasks = @tasks.name_search(params[:search][:name]).status_search(params[:search][:status])
       elsif params[:search][:name].present?
-        @tasks = Task.name_search(params[:search][:name]).page(params[:page]).per(PER)
+        @tasks = @tasks.name_search(params[:search][:name])
       elsif params[:search][:status].present?
-        @tasks = Task.status_search(params[:search][:status]).page(params[:page]).per(PER)
+        @tasks = @tasks.status_search(params[:search][:status])
       end
     end
+    @tasks = @tasks.page(params[:page]).per(PER)
   end
 
   # GET /tasks/1 or /tasks/1.json
