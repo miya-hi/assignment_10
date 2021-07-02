@@ -1,9 +1,11 @@
 class Admin::UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :exclude_not_admin_user
+
   def new
     @user = User.new
   end
+
   def create
     @user = User.new(user_params)
     if @user.save
@@ -12,9 +14,11 @@ class Admin::UsersController < ApplicationController
       render :new
     end
   end
+
   def index
     @users = User.all.includes(:tasks)
   end
+  
   def edit
   end
   def update
