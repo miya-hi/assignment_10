@@ -1,2 +1,13 @@
-<h1>Admin::Users#edit</h1>
-<p>Find me in app/views/admin/users/edit.html.erb</p>
+<h1>edit</h1>
+<h3><%= @user.name %>privilege</h3>
+<%= form_with(model: @user, url: admin_user_path, method: :patch, local: true) do |f| %>
+  <table>
+    <tr>
+      <td><%= f.label :admin, "管理者権限 付与/解除" %>
+        <%= f.check_box :admin, checked: true %></td>
+    </tr>
+    <tr>
+      <td><%= f.submit "更新" %></td>
+    </tr>
+  </table>
+<% end %>

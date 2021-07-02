@@ -15,7 +15,10 @@ class Admin::UsersController < ApplicationController
 
   def edit
   end
-
+  def update
+    @user.update(user_params)
+    redirect_to admin_users_path, notice:'権限を更新しました'
+  end
   def show
   end
 
