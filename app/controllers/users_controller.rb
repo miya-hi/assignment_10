@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :login_required, only: [:new, :create]
-  before_action :redirect_task, only: [:new]
+  before_action :redirect_tasks, only: [:new]
   before_action :exclude_not_current_user, only: [:show]
 
   def new
