@@ -1,2 +1,11 @@
-<h1>Admin::Users#show</h1>
-<p>Find me in app/views/admin/users/show.html.erb</p>
+<h1><%= @user.name %>のページ</h1>
+<table>
+  <tr>
+    <th><%= 'name' %></th>
+  </tr>
+  <% @user.tasks.each do |task| %>
+   <tr>
+     <td><%= task.name %></td>
+   </tr>
+ <% end %>
+</table>
