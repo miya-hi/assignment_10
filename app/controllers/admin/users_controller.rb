@@ -18,12 +18,15 @@ class Admin::UsersController < ApplicationController
   def index
     @users = User.all.includes(:tasks)
   end
-  
+
   def edit
   end
   def update
-    @user.update(user_params)
-    redirect_to admin_users_path, notice:"ユーザー「#{@user.name}」の権限を更新しました"
+    if @user.update(user_params)
+      redirect_to admin_users_path, notice:"ユーザー「#{@user.name}」の権限を更新しました"
+    else
+      render :edit, notice:"ユーザー「#{@user.name}」の権限を更新できませんでした"
+    end
   end
   def show
   end
