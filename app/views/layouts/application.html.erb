@@ -10,7 +10,7 @@
   <body>
     <% if logged_in? %>
       <%= link_to (t 'layouts.application.profile'), user_path(current_user.id) %>
-      <%= link_to (t 'layouts.application.logout'), session_path(current_user.id), method: :delete %>
+      <%= link_to (t 'layouts.application.log_out'), session_path(current_user.id), method: :delete %>
     <% else %>
       <%= link_to (t 'layouts.application.sign_up'), new_user_path %>
       <%= link_to (t 'layouts.application.log_in'), new_session_path %>

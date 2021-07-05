@@ -23,9 +23,9 @@ class Admin::UsersController < ApplicationController
   end
   def update
     if @user.update(user_params)
-      redirect_to admin_users_path, notice:"ユーザー「#{@user.name}」の権限を更新しました"
+      redirect_to admin_users_path, notice:"ユーザー「#{@user.name}」の情報を更新しました"
     else
-      render :edit, notice:"ユーザー「#{@user.name}」の権限を更新できませんでした"
+      render :edit, notice:"ユーザー「#{@user.name}」の情報を更新できませんでした"
     end
   end
   def show
