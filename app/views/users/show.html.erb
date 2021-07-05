@@ -1,4 +1,4 @@
-<h1><%= @user.name %>のページ</h1>
-<p>メールアドレス: <%= @user.email %></p>
-
-<%= link_to 'タスク一覧へ', tasks_path %>
+<h1><%= @user.name %><%= t 'users.show.page' %></h1>
+<p><%= t 'users.show.email' %><%=  @user.email %></p>
+<br>
+<%= link_to (t 'users.show.to_task_page'), tasks_path %>

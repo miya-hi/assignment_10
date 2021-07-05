@@ -46,7 +46,7 @@ class Admin::UsersController < ApplicationController
   end
   def exclude_not_admin_user
     if current_user.admin == false
-      redirect_to root_path, notice: 'アクセス権限がありません'
+      redirect_to root_path, notice: "アクセス権限がありません"
     end
   end
 end

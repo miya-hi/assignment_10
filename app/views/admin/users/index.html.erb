@@ -1,10 +1,9 @@
-<h1>users</h1>
-<p><%= link_to '新規ユーザー登録', new_admin_user_path %></p>
+<h2><%= t 'admin.users.index.users' %></h2>
 <table>
   <tr>
-    <th>privileges</th>
-    <th>user_name</th>
-    <th>task_count</th>
+    <th><%= t 'admin.users.index.privileges' %></th>
+    <th><%= t 'admin.users.index.name' %></th>
+    <th><%= t 'admin.users.index.task_count' %></th>
     <th colspan="3"></th>
   </tr>
   <% @users.each do |user| %>
@@ -12,9 +11,11 @@
     <td><% if user.admin == true %>○<% else %>×<% end %></td>
     <td><%= user.name %></td>
     <td><%= user.tasks.count %></td>
-    <td><%= link_to 'show',admin_user_path(user.id) %></td>
-    <td><%= link_to 'edit',edit_admin_user_path(user.id) %></td>
-    <td><%= link_to 'destroy',admin_user_path(user.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to (t 'admin.users.index.show'),admin_user_path(user.id) %></td>
+    <td><%= link_to (t 'admin.users.index.edit'),edit_admin_user_path(user.id) %></td>
+    <td><%= link_to (t 'admin.users.index.destroy'),admin_user_path(user.id), method: :delete, data: { confirm: '削除してよろしいですか' } %></td>
   </tr>
   <% end %>
 </table>
+<br>
+<p><%= link_to (t 'admin.users.index.sign_up'), new_admin_user_path %></p>

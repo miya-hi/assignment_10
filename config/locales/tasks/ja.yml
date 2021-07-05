@@ -1,4 +1,29 @@
 ja:
+  admin:
+    users:
+      new:
+        sign_up: '【管理画面】ユーザー登録'
+        error: 'エラー'
+        error_message: '次の内容を修正して下さい:'
+        submit: 'アカウント登録'
+      edit:
+        edit: '【管理画面】ユーザー編集'
+        privileges: 'の管理者権限'
+        change: '付与/解除'
+        submit: '更新'
+      show:
+        admin: '【管理画面】'
+        page: 'のページ'
+        name: 'タスク一覧'
+      index:
+        users: '【管理画面】ユーザー一覧'
+        sign_up: '新規ユーザー登録'
+        privileges: '管理者権限'
+        name: '名前'
+        task_count: 'タスク数'
+        show: '詳細'
+        edit: '編集'
+        destroy: '削除'
   tasks:
     new:
       title: '新規タスク'
@@ -31,3 +56,24 @@ ja:
       title: 'タスク編集'
       to_show_page: '一覧'
       to_back_page: '戻る'
+  users:
+    new:
+      sign_up: 'ユーザー登録'
+      error: 'エラー'
+      error_message: '次の内容を修正して下さい:'
+      submit: 'アカウント登録'
+    show:
+      page: 'のぺージ'
+      email: 'メールアドレス：'
+      to_task_page: 'タスク一覧へ'
+  sessions:
+    new:
+      log_in: 'ログイン'
+      email: 'メールアドレス'
+      password: 'パスワード'
+  layouts:
+    application:
+      profile: 'プロフィール'
+      logout: 'ログアウト'
+      sign_up: 'ユーザー登録'
+      log_in: 'ログイン'

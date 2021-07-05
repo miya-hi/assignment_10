@@ -1,13 +1,13 @@
-<h1>edit</h1>
-<h3><%= @user.name %>privilege</h3>
+<h2><%= t 'admin.users.edit.edit' %></h2>
+<h3><%= @user.name %><%= t 'admin.users.edit.privileges' %></h3>
 <%= form_with(model: @user, url: admin_user_path, method: :patch, local: true) do |f| %>
   <table>
     <tr>
-      <td><%= f.label :admin, "管理者権限 付与/解除" %>
+      <td><%= f.label :admin, (t 'admin.users.edit.change') %>
         <%= f.check_box :admin, checked: true %></td>
     </tr>
     <tr>
-      <td><%= f.submit "更新" %></td>
+      <td><%= f.submit (t 'admin.users.edit.submit') %></td>
     </tr>
   </table>
 <% end %>
