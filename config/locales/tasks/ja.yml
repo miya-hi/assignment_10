@@ -8,8 +8,7 @@ ja:
         submit: 'アカウント登録'
       edit:
         edit: '【管理画面】ユーザー編集'
-        privileges: 'の管理者権限'
-        change: '付与/解除'
+        change: '管理者権限 付与/解除'
         submit: '更新'
       show:
         admin: '【管理画面】'
@@ -74,6 +73,6 @@ ja:
   layouts:
     application:
       profile: 'プロフィール'
-      logout: 'ログアウト'
+      log_out: 'ログアウト'
       sign_up: 'ユーザー登録'
       log_in: 'ログイン'

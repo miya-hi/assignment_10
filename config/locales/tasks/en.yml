@@ -8,8 +8,7 @@ admin:
       submit: 'Create user account'
     edit:
       edit: '【Admin】Edit'
-      privileges: 'Privilege'
-      change: 'Grant/Release'
+      change: 'Grant/Release Privilege'
       submit: 'Update'
     show:
       admin: '【Admin】'
@@ -71,6 +70,6 @@ admin:
   layouts:
     application:
       profile: 'Profile'
-      logout: 'Logout'
+      log_out: 'Logout'
       sign_up: 'Sign up'
       log_in: 'Login'

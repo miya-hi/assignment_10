@@ -1,13 +1,27 @@
 <h2><%= t 'admin.users.edit.edit' %></h2>
-<h3><%= @user.name %><%= t 'admin.users.edit.privileges' %></h3>
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@user.errors.count, (t 'admin.users.new.error')) %><span> </span><%= @user.name %><%= t 'admin.users.new.error_message' %></h2>
+    <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<h3><%= @user.name %></h3>
 <%= form_with(model: @user, url: admin_user_path, method: :patch, local: true) do |f| %>
-  <table>
-    <tr>
-      <td><%= f.label :admin, (t 'admin.users.edit.change') %>
-        <%= f.check_box :admin, checked: true %></td>
-    </tr>
-    <tr>
-      <td><%= f.submit (t 'admin.users.edit.submit') %></td>
-    </tr>
-  </table>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
+  <%= f.label :admin, (t 'admin.users.edit.change') %>
+  <%= f.check_box :admin, checked: true %>
+  <br>
+  <br>
+  <%= f.submit (t 'admin.users.edit.submit') %>
 <% end %>
