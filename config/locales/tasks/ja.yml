@@ -36,6 +36,7 @@ ja:
       status: '進捗'
       deadline: '終了期限'
       priority: '優先度'
+      user_name: '投稿者'
       search: '検索'
       to_show_page: '詳細'
       to_edit_page: '編集'

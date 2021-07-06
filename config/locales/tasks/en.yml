@@ -36,6 +36,7 @@ admin:
       status: 'Status'
       deadline: 'Deadline'
       priority: 'Priority'
+      user_name: 'Name'
       search: 'Search'
       to_show_page: 'Show'
       to_edit_page: 'Edit'
