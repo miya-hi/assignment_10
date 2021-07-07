@@ -1,0 +1,10 @@
+<h1><%= t 'sessions.new.log_in' %></h1>
+<%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
+  <%= f.label(:email, (t 'sessions.new.email')) %>
+  <%= f.email_field :email %>
+  <%= f.label(:password, (t 'sessions.new.password')) %>
+  <%= f.password_field :password %>
+  <br>
+  <br>
+  <%= f.submit (t 'sessions.new.log_in') %>
+<% end %>

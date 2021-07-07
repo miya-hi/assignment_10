@@ -3,23 +3,24 @@ class TasksController < ApplicationController
   PER = 5
   # GET /tasks or /tasks.json
   def index
-    @tasks = Task.all.page(params[:page]).per(PER)
+    @tasks = current_user.tasks
     if params[:sort_expired]
-      @tasks = @tasks.order(deadline: "ASC").page(params[:page]).per(PER)
+      @tasks = @tasks.order(deadline: "ASC")
     elsif params[:sort_priority]
-      @tasks = @tasks.order(priority: "ASC").page(params[:page]).per(PER)
+      @tasks = @tasks.order(priority: "ASC")
     else
-      @tasks = @tasks.order(created_at: "DESC").page(params[:page]).per(PER)
+      @tasks = @tasks.order(created_at: "DESC")
     end
     if params[:search].present?
       if params[:search][:name].present? && params[:search][:status].present?
-        @tasks = Task.name_search(params[:search][:name]).status_search(params[:search][:status]).page(params[:page]).per(PER)
+        @tasks = @tasks.name_search(params[:search][:name]).status_search(params[:search][:status])
       elsif params[:search][:name].present?
-        @tasks = Task.name_search(params[:search][:name]).page(params[:page]).per(PER)
+        @tasks = @tasks.name_search(params[:search][:name])
       elsif params[:search][:status].present?
-        @tasks = Task.status_search(params[:search][:status]).page(params[:page]).per(PER)
+        @tasks = @tasks.status_search(params[:search][:status])
       end
     end
+    @tasks = @tasks.page(params[:page]).per(PER)
   end
 
   # GET /tasks/1 or /tasks/1.json
@@ -37,8 +38,7 @@ class TasksController < ApplicationController
 
   # POST /tasks or /tasks.json
   def create
-    @task = Task.new(task_params)
-
+    @task = current_user.tasks.build(task_params)
     respond_to do |format|
       if @task.save
         format.html { redirect_to @task, notice: "Task was successfully created." }
@@ -54,7 +54,7 @@ class TasksController < ApplicationController
   def update
     respond_to do |format|
       if @task.update(task_params)
-        format.html { redirect_to @task, notice: "Task was successfully updated." }
+        format.html { redirect_to @task, notice: "更新しました" }
         format.json { render :show, status: :ok, location: @task }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -67,7 +67,7 @@ class TasksController < ApplicationController
   def destroy
     @task.destroy
     respond_to do |format|
-      format.html { redirect_to tasks_url, notice: "Task was successfully destroyed." }
+      format.html { redirect_to tasks_url, notice: "削除しました" }
       format.json { head :no_content }
     end
   end

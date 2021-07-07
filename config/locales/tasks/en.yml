@@ -1,4 +1,28 @@
 en:
+admin:
+  users:
+    new:
+      sign_up: '【Admin】Sign up'
+      error: 'error'
+      error_message: 'prohibited this user from being saved:'
+      submit: 'Create user account'
+    edit:
+      edit: '【Admin】Edit'
+      change: 'Grant/Release Privilege'
+      submit: 'Update'
+    show:
+      admin: '【Admin】'
+      page: 'page'
+      name: 'Tasks'
+    index:
+      users: '【Admin】Users'
+      sign_up: 'Create New User'
+      privileges: 'Privilege'
+      name: 'Name'
+      task_count: 'Number Of Tasks'
+      show: 'Show'
+      edit: 'Edit'
+      destroy: 'Destroy'
   tasks:
     new:
       title: 'New Task'
@@ -9,20 +33,21 @@ en:
       tasks: 'Tasks'
       name: 'Task Name'
       description: 'Description'
-      status: 'status'
-      deadline: 'deadline'
-      priority: 'priority'
-      search: 'search'
+      status: 'Status'
+      deadline: 'Deadline'
+      priority: 'Priority'
+      user_name: 'Name'
+      search: 'Search'
       to_show_page: 'Show'
       to_edit_page: 'Edit'
       to_delete: 'Destroy'
       to_new_page: 'New Task'
-      sort_of_deadline: 'sort of deadline'
-      sort_of_priority: 'sort of priority'
+      sort_of_deadline: 'Sort Of deadline'
+      sort_of_priority: 'Sort Of Priority'
     show:
       name: 'Name:'
       description: 'Description:'
-      status: 'status:'
+      status: 'Status:'
       deadline: 'deadline:'
       priority: 'priority:'
       to_edit_page: 'Edit'
@@ -31,3 +56,21 @@ en:
       title: 'Editing Task'
       to_show_page: 'Show'
       to_back_page: 'Back'
+  users:
+    new:
+      submit: 'Create my account'
+    show:
+      page: 'Page'
+      email: 'Email：'
+      to_task_page: 'Visit Ttasks'
+  sessions:
+    new:
+      log_in: 'Log in'
+      email: 'Email'
+      password: 'password'
+  layouts:
+    application:
+      profile: 'Profile'
+      log_out: 'Logout'
+      sign_up: 'Sign up'
+      log_in: 'Login'

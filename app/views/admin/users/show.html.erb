@@ -1,0 +1,11 @@
+<h2><%= t 'admin.users.show.admin' %><%= @user.name %><%= t 'admin.users.show.page' %></h2>
+<table>
+  <tr>
+    <th><%= t 'admin.users.show.name' %></th>
+  </tr>
+  <% @user.tasks.each do |task| %>
+   <tr>
+     <td><%= task.name %></td>
+   </tr>
+ <% end %>
+</table>
