@@ -1,4 +1,6 @@
 class Task < ApplicationRecord
+  has_many :labelings, dependent: :destroy
+  has_many :labels, through: :labelings
   validates :name, presence: true, length: { minumun:1, maximum: 252 }
   validates :description, presence: true, length: { minumun:1, maximum: 1000 }
   validates :deadline, presence: true
