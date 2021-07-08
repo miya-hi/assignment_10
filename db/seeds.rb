@@ -8,7 +8,7 @@
 User.create(name: "m", email: "h@email.com", password: "123456", admin: true )
 
 10.times do |n|
-  email = "#{n}@example.com",
+  email = "abc#{n}@example.com",
   User.create!(name: "name",
                email: email,
                password: "password",
