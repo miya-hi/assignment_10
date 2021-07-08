@@ -1,5 +1,13 @@
 en:
 admin:
+  labels:
+    new:
+      make_labels: '【Admin】Create Labels'
+      submit: 'Register'
+    index:
+      labels: '【Admin】Labels'
+      to_new_page: 'Create New Label'
+      destroy: 'Destroy'
   users:
     new:
       sign_up: '【Admin】Sign up'
@@ -48,8 +56,9 @@ admin:
       name: 'Name:'
       description: 'Description:'
       status: 'Status:'
-      deadline: 'deadline:'
-      priority: 'priority:'
+      deadline: 'Deadline:'
+      priority: 'Priority:'
+      label: 'Label'
       to_edit_page: 'Edit'
       to_back_page: 'Back'
     edit:

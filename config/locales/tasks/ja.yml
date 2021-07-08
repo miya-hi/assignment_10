@@ -1,5 +1,13 @@
 ja:
   admin:
+    labels:
+      new:
+        make_labels: '【管理画面】ラベル登録'
+        submit: '登録'
+      index:
+        labels: '【管理画面】ラベル一覧'
+        to_new_page: '新規ラベル登録'
+        destroy: '削除'
     users:
       new:
         sign_up: '【管理画面】ユーザー登録'
@@ -37,6 +45,7 @@ ja:
       deadline: '終了期限'
       priority: '優先度'
       user_name: '投稿者'
+      label: 'ラベル'
       search: '検索'
       to_show_page: '詳細'
       to_edit_page: '編集'
@@ -50,6 +59,7 @@ ja:
       status: '進捗:'
       deadline: '終了期限:'
       priority: '優先度:'
+      label: 'ラベル'
       to_edit_page: '編集'
       to_back_page: '戻る'
     edit:
