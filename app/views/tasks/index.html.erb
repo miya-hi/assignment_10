@@ -43,7 +43,7 @@
         <td class="status_test"><%= task.status %></td>
         <td><%= task.priority %></td>
         <td><%= task.user.name %></td>
-        <td>
+        <td class="labels_find_test">
           <% task.labels.each do |label| %>
           <%= label.name %>
           <% end %>

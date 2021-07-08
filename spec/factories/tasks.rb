@@ -21,6 +21,6 @@ FactoryBot.define do
     deadline { '2021-07-01' }
     status { '未着手' }
     priority { '高' }
-    association :user 
+    association :user
   end
 end

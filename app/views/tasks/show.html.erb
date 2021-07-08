@@ -21,7 +21,7 @@
   <div class="field">
     <strong><%= t 'tasks.show.label' %></strong>
     <% @task.labels.pluck(:name).each do |label| %>
-    <%= label %>
+    <span class="labels_test"><%= label %></span>
     <% end %>
   </div>
 </div>
