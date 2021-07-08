@@ -1,0 +1,8 @@
+<h2><%= t 'admin.labels.new.make_labels' %></h2>
+<%= form_with(model: [:admin, @label], local: true) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+  <br>
+  <%= f.submit %>
+<% end %>

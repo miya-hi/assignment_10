@@ -37,9 +37,9 @@ class Admin::UsersController < ApplicationController
       redirect_to admin_users_path, notice: "ユーザー「#{@user.name}」を削除できませんでした"
     end
   end
-
+  private
   def user_params
-    params.require(:user).permit(:name, :email, :admin, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :admin, :password, :password_confirmation, :label_ids [])
   end
   def set_user
     @user = User.find(params[:id])

@@ -1,0 +1,9 @@
+<h2><%= t 'admin.labels.new.labels' %></h2>
+<p class="new_task"><%= link_to (t '.to_new_page'), new_admin_label_path %></p>
+<table>
+<% @labels.each do |label| %>
+  <tr><td><%= label.name %></td>
+  <td><%= link_to (t 'admin.labels.new.desroy'), admin_label_path(label.id), method: :delete, data: { confirm: '削除してよろしいですか？'} %></td>
+  </tr>
+<% end %>
+</table>
