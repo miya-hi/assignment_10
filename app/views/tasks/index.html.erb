@@ -25,6 +25,7 @@
       <th><%= t 'tasks.index.status' %></th>
       <th><%= t 'tasks.index.priority' %></th>
       <th><%= t 'tasks.index.user_name' %></th>
+      <th><%= t 'tasks.index.label' %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -38,6 +39,11 @@
         <td class="status_test"><%= task.status %></td>
         <td><%= task.priority %></td>
         <td><%= task.user.name %></td>
+        <td>
+          <% task.labels.each do |label| %>
+          <%= label.name %>
+          <% end %>
+        </td>
         <td><%= link_to (t '.to_show_page'), task %></td>
         <td><%= link_to (t '.to_edit_page'), edit_task_path(task) %></td>
         <td><%= link_to (t '.to_delete'), task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
