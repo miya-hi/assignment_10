@@ -8,12 +8,10 @@
 User.create(name: "m", email: "h@email.com", password: "123456", admin: true )
 
 10.times do |n|
-  name = Faker::Games::Pokemon.name
-  email = Faker::Internet.email
-  password = "password"
-  User.create!(name: name,
+  email = "#{n}@example.com",
+  User.create!(name: "name",
                email: email,
-               password: password,
+               password: "password",
                admin: false
                )
 end
