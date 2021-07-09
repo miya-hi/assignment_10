@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   before_update :not_nullify_admin
   before_destroy :least_one
-  # before_validation { email.downcase! }
+  before_validation { email.downcase! }
   validates :name, presence: true, length: { maximum: 30 }
   validates :email, presence: true, length: { maximum: 255 },
   format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }, uniqueness: true
