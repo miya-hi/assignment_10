@@ -12,12 +12,20 @@ class TasksController < ApplicationController
       @tasks = @tasks.order(created_at: "DESC")
     end
     if params[:search].present?
-      if params[:search][:name].present? && params[:search][:status].present?
+      if params[:search][:name].present? && params[:search][:status].present? && params[:search][:label].present?
+        @tasks = @tasks.name_search(params[:search][:name]).status_search(params[:search][:status]).label_search(params[:search][:label])
+      elsif params[:search][:name].present? && params[:search][:status].present?
         @tasks = @tasks.name_search(params[:search][:name]).status_search(params[:search][:status])
+      elsif params[:search][:name].present? && params[:search][:label].present?
+        @tasks = @tasks.name_search(params[:search][:name]).label_search(params[:search][:label])
+      elsif params[:search][:status].present? && params[:search][:label].present?
+        @tasks = @tasks.status_search(params[:search][:status]).label_search(params[:search][:label])
       elsif params[:search][:name].present?
         @tasks = @tasks.name_search(params[:search][:name])
       elsif params[:search][:status].present?
         @tasks = @tasks.status_search(params[:search][:status])
+      elsif params[:search][:label].present?
+        @tasks = @tasks.label_search(params[:search][:label])
       end
     end
     @tasks = @tasks.page(params[:page]).per(PER)
@@ -80,6 +88,6 @@ class TasksController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def task_params
-    params.require(:task).permit(:name, :description, :deadline, :status, :priority)
+    params.require(:task).permit(:name, :description, :deadline, :status, :priority, { label_ids: [] } )
   end
 end

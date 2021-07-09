@@ -18,6 +18,12 @@
     <strong><%= t 'tasks.show.priority' %></strong>
     <%= @task.priority %>
   </div>
+  <div class="field">
+    <strong><%= t 'tasks.show.label' %></strong>
+    <% @task.labels.pluck(:name).each do |label| %>
+    <span class="labels_test"><%= label %></span>
+    <% end %>
+  </div>
 </div>
 <br>
 <%= link_to (t '.to_edit_page'), edit_task_path(@task) %> |
